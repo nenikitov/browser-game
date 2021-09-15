@@ -1,3 +1,5 @@
+import { Vector2d } from "../utils/vector.js";
+
 export class CanvasHandler {
     //#region Fields
     /** Canvas object */
@@ -84,13 +86,21 @@ export class CanvasHandler {
     clear() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
-    drawTest() {
-        this._ctx.fillStyle = 'green';
-        this._ctx.fillRect(20, 20, 150, 100);
-    }
-    drawTest2() {
-        this._ctx.fillStyle = 'red';
-        this._ctx.fillRect(40, 40, 150, 100);
+    drawSprite(source, pos, size) {
+        const image = new Image();
+        image.src = source;
+
+        image.onload = () => {
+            this._ctx.drawImage(image, pos.x, pos.y, size.x, size.y);
+        }
+        image.onerror = () => {
+            const errorImg = new Image();
+            errorImg.src = './res/tiles/missing.png'
+
+            errorImg.onload = () => {
+                this._ctx.drawImage(errorImg, pos.x, pos.y, size.x, size.y);
+            } 
+        }
     }
     //#endregion
 }

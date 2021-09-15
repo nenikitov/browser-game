@@ -1,13 +1,13 @@
 export class CanvasHandler {
     //#region Fields
     /** Canvas object */
-    #canvas;
+    _canvas;
     /** 2d drawing context of the canvas */
-    #ctx;
+    _ctx;
     /** Aspect ration (width / height) */
-    #ratio;
+    _ratio;
     /** Rendering resolution multiplier */
-    #resScale;
+    _resScale;
     //#endregion
 
 
@@ -19,8 +19,8 @@ export class CanvasHandler {
      * @param {number} resolutionScale Multiplier for rendering resolution
      */
     constructor(canvasId, aspectRatio, resolutionScale) {
-        this.#canvas = document.querySelector("#" + canvasId);
-        this.#ctx = this.#canvas.getContext('2d');
+        this._canvas = document.querySelector("#" + canvasId);
+        this._ctx = this._canvas.getContext('2d');
 
         this.setAspectRatio(aspectRatio);
         this.setResolutionScale(resolutionScale);
@@ -36,7 +36,7 @@ export class CanvasHandler {
      * @param {number} aspectRatio Aspect ratio (width / height)
      */
     setAspectRatio(aspectRatio) {
-        this.#ratio = aspectRatio;
+        this._ratio = aspectRatio;
         this.clear();
     }
     /**
@@ -44,7 +44,7 @@ export class CanvasHandler {
      * @param {number} resolutionScale Multiplier for rendering resolution
      */
     setResolutionScale(resolutionScale) {
-        this.#resScale = resolutionScale;
+        this._resScale = resolutionScale;
         this.clear();
     }
     /**
@@ -54,26 +54,26 @@ export class CanvasHandler {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
 
-        const targetWidth = windowHeight * this.#ratio; 
-        const targetHeight = windowWidth / this.#ratio; 
+        const targetWidth = windowHeight * this._ratio; 
+        const targetHeight = windowWidth / this._ratio; 
 
         if (targetHeight > windowHeight) {
-            this.#setRenderResolution(targetWidth, windowHeight);
-            this.#setDisplayResolution(targetWidth, targetHeight)
+            this._setRenderResolution(targetWidth, windowHeight);
+            this._setDisplayResolution(targetWidth, targetHeight)
         }
         else {
-            this.#setRenderResolution(windowWidth, targetHeight);
-            this.#setDisplayResolution(windowWidth, targetHeight)
+            this._setRenderResolution(windowWidth, targetHeight);
+            this._setDisplayResolution(windowWidth, targetHeight)
         }
     }
-    #setRenderResolution(width, height, useResolutionScale = true) {
-        const scale = useResolutionScale ? this.#resScale : 1;
-        this.#canvas.width = width * scale;
-        this.#canvas.height = height * scale;
+    _setRenderResolution(width, height, useResolutionScale = true) {
+        const scale = useResolutionScale ? this._resScale : 1;
+        this._canvas.width = width * scale;
+        this._canvas.height = height * scale;
     }
-    #setDisplayResolution(width, height) {
-        this.#canvas.style.width = `${width}px`;
-        this.#canvas.style.height = `${height}px`;
+    _setDisplayResolution(width, height) {
+        this._canvas.style.width = `${width}px`;
+        this._canvas.style.height = `${height}px`;
     }
     //#endregion
 
@@ -82,15 +82,15 @@ export class CanvasHandler {
      * Clear the rendering surface
      */
     clear() {
-        this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
+        this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
     drawTest() {
-        this.#ctx.fillStyle = 'green';
-        this.#ctx.fillRect(20, 20, 150, 100);
+        this._ctx.fillStyle = 'green';
+        this._ctx.fillRect(20, 20, 150, 100);
     }
     drawTest2() {
-        this.#ctx.fillStyle = 'red';
-        this.#ctx.fillRect(40, 40, 150, 100);
+        this._ctx.fillStyle = 'red';
+        this._ctx.fillRect(40, 40, 150, 100);
     }
     //#endregion
 }

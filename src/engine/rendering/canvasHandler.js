@@ -86,21 +86,11 @@ export class CanvasHandler {
     clear() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
-    drawSprite(source, pos, size) {
-        const image = new Image();
-        image.src = source;
+    drawImage(image, position, size, cropStart = undefined, cropSize = undefined) {
+        cropStart = cropStart || new Vector2d(0, 0);
+        cropSize = cropSize || new Vector2d(image.naturalWidth - cropStart.x, image.naturalHeight - cropStart.y);
 
-        image.onload = () => {
-            this._ctx.drawImage(image, pos.x, pos.y, size.x, size.y);
-        }
-        image.onerror = () => {
-            const errorImg = new Image();
-            errorImg.src = './res/tiles/missing.png'
-
-            errorImg.onload = () => {
-                this._ctx.drawImage(errorImg, pos.x, pos.y, size.x, size.y);
-            } 
-        }
+        this._ctx.drawImage(image, cropStart.x, cropStart.y, cropSize.x, cropSize.y, position.x, position.y, size.x, size.y);
     }
     //#endregion
 }

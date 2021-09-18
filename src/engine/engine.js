@@ -1,6 +1,6 @@
-import { CanvasHandler } from './rendering/canvasHandler.js'
+import { CanvasHandler } from './rendering/canvas-handler.js'
 import { Vector2d } from './utils/vector.js';
-import { KeyboardListener } from './input/keyboardListener.js'
+import { KeyboardListener } from './input/keyboard-listener.js'
 
 const canvasHandler = new CanvasHandler('renderSurface', 16/9, 1);
 const keyboardListener = new KeyboardListener(['KeyW']);

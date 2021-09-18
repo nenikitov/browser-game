@@ -1,5 +1,9 @@
 import { Vector2d } from "../utils/vector.js";
 
+/**
+ * Handles canvas initialization
+ * Provides a simpler way of drawing objects onto a canvas
+ */
 export class CanvasHandler {
     //#region Fields
     /** @const @private @type {HTMLCanvasElement} Canvas object */

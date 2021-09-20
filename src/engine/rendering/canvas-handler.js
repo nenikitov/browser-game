@@ -25,7 +25,7 @@ export class CanvasHandler {
      * @param {number} resolutionScale Multiplier for rendering resolution
      */
     constructor(canvasId, aspectRatio, resolutionScale) {
-        this.canvas_ = document.querySelector("#" + canvasId);
+        this.canvas_ = document.querySelector('#' + canvasId);
         this.ctx_ = this.canvas_.getContext('2d');
 
         this.setAspectRatio(aspectRatio);
@@ -47,7 +47,7 @@ export class CanvasHandler {
     }
     /**
      * Aspect ratio (width / height)
-     * @returns {number} Aspect raio
+     * @returns {number} Aspect ratio
      */
     getAspectRatio() {
         return this.ratio_;
@@ -64,11 +64,11 @@ export class CanvasHandler {
      * Get the multiplier for rendering resolution
      * @returns {number} Resolution scale
      */
-    getResolutionscale() {
+    getResolutionScale() {
         return this.resScale_;
     }
     /**
-     * Automatically adjust the size to the bigest rectangle of current aspect ratio
+     * Automatically adjust the size to the largest rectangle of current aspect ratio
      */
     adjustSize() {
         const windowWidth = window.innerWidth;

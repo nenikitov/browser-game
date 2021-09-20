@@ -12,16 +12,16 @@ export class KeyboardListener {
     constructor() {
         this.states_ = {};
 
-        document.addEventListener('keydown', this.keyDown);
-        document.addEventListener('keyup', this.keyUp);
+        document.addEventListener('keydown', this.keyDown_);
+        document.addEventListener('keyup', this.keyUp_);
     }
 
     /** @private */
-    keyDown = (e) => {
+    keyDown_ = (e) => {
         this.states_[e.code] = true;
     }
     /** @private */
-    keyUp = (e) => {
+    keyUp_ = (e) => {
         this.states_[e.code] = false;
     }
 

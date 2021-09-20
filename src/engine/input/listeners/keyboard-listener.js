@@ -4,13 +4,13 @@
  */
 export class KeyboardListener {
     /** @private @type {boolean[]} Hash map of booleans representing if the key is pressed or no, indexed by the string key code */
-    states_;
+    keys_;
 
     /**
      * Init the keyboard handler
      */
     constructor() {
-        this.states_ = {};
+        this.keys_ = {};
 
         document.addEventListener('keydown', this.keyDown_);
         document.addEventListener('keyup', this.keyUp_);
@@ -18,11 +18,11 @@ export class KeyboardListener {
 
     /** @private */
     keyDown_ = (e) => {
-        this.states_[e.code] = true;
+        this.keys_[e.code] = true;
     }
     /** @private */
     keyUp_ = (e) => {
-        this.states_[e.code] = false;
+        this.keys_[e.code] = false;
     }
 
     /**
@@ -31,6 +31,6 @@ export class KeyboardListener {
      * @returns {boolean} Key state
      */
     isPressed(code) {
-        return this.states_[code] || false;
+        return this.keys_[code] || false;
     }
 }

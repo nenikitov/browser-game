@@ -3,19 +3,22 @@ export class Vector2d {
     y;
 
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        this.set(x, y);
     }
     add(other) {
         this.x += other.x;
         this.y += other.y;
     }
-    mulitplyScalar(scalar) {
+    multiplyScalar(scalar) {
         this.x *= scalar;
         this.y *= scalar;
     }
-    set(other) {
+    copy(other) {
         this.x = other.x;
         this.y = other.y;
+    }
+    set(x, y) {
+        this.x = x;
+        this.y = y;
     }
 }

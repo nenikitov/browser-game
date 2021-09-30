@@ -1,26 +1,26 @@
 export class AssetBase {
     /** @private A reference to the asset */
-    asset_;
+    _asset;
     /** @private @type {boolean} If the asset is loaded */
-    loaded_;
+    _loaded;
 
     constructor(source) {
-        this.loaded_ = false;
-        this.load_(source);
+        this._loaded = false;
+        this._load(source);
     }
 
     /**
      * @private Load the asset
      * @param {string} source The path to the asset file
      */
-    load_(source) {};
+    _load(source) {};
 
     /**
      * Return a reference to the asset
      * @returns {object}
      */
     asset() {
-        return this.asset_;
+        return this._asset;
     }
 
     /**
@@ -28,6 +28,6 @@ export class AssetBase {
      * @returns {boolean}
      */
     loaded() {
-        return this.loaded_;
+        return this._loaded;
     }
 }

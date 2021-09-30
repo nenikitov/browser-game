@@ -2,9 +2,9 @@ import { InputBind, MousePositionBind } from './input-bind.js';
 
 export class InputAction {
     /** @private @type {InputBind} */
-    bind_;
+    _bind;
     /** @private @type {Function} Callback that passes the input */
-    callback_;
+    _callback;
 
     /**
      * 
@@ -12,15 +12,15 @@ export class InputAction {
      * @param {Function} modifyCallback 
      */
     constructor(inputBind, modifyCallback) {
-        this.bind_ = inputBind;
-        this.callback_ = modifyCallback;
+        this._bind = inputBind;
+        this._callback = modifyCallback;
     }
 
     setInputBind(inputBind) {
-        this.bind_ = inputBind;
+        this._bind = inputBind;
     }
     getInputBind() {
-        return this.bind_;
+        return this._bind;
     }
 
     execute(value) {

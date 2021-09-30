@@ -1,9 +1,9 @@
 import { AssetBase } from './asset-base.js';
 
 export class AssetImage extends AssetBase {
-    load_(source) {
-        this.asset_ = new Image();
-        this.asset_.src = source;
-        this.asset_.addEventListener('load', () => { this.loaded_ = true; });
+    _load(source) {
+        this._asset = new Image();
+        this._asset.src = source;
+        this._asset.addEventListener('load', () => { this.loaded_ = true; });
     }
 }

@@ -11,7 +11,7 @@ const assetTypeLookup = {
  */
 export class AssetHandler {
     /** @private @type {AssetBase[]} Hash map of all image assets that are loaded or to be loaded */
-    static assets_ = {};
+    static _assets = {};
 
     /**
      * Returns the loaded asset or loads it
@@ -19,10 +19,10 @@ export class AssetHandler {
      * @returns {AssetBase}
      */
     static get(type, source) {
-        if (! this.assets_[source]) {
-            this.assets_[source] = new assetTypeLookup[type](source);
+        if (! this._assets[source]) {
+            this._assets[source] = new assetTypeLookup[type](source);
         }
 
-        return this.assets_[source];
+        return this._assets[source];
     }
 }

@@ -12,25 +12,25 @@ export const mouseButtons = {
 
 export class GameAction {
     /** @private @type {boolean} */
-    limit_;
+    _limit;
     /** @private @type {KeyBind[]} */
-    keyBinds_;
+    _keyBinds;
 
     constructor(limit, ...keyBinds) {
-        this.keyBinds_ = keyBinds;
-        this.limit_ = limit;
+        this._keyBinds = keyBinds;
+        this._limit = limit;
     }
 
     value(keyboardListener) {
         let total = 0;
 
-        for (let keyBind of this.keyBinds_) {
+        for (let keyBind of this._keyBinds) {
             if (keyboardListener.isPressed(keyBind.getKeycode())) {
                 total += keyBind.getValue();
             }
         }
 
-        if (this.limit_) {
+        if (this._limit) {
             return Math.min(1.0, Math.max(-1.0, total));
         }
         else {
@@ -42,9 +42,9 @@ export class GameAction {
 
 export class KeyBind {
     /** @private @type {Key} The key that should be pressed to trigger the bind */
-    key_;
+    _key;
     /** @private @type {number} The value of the key bind when the key is pressed */
-    value_;
+    _value;
 
     /**
      * Init the keyboard bind
@@ -52,21 +52,21 @@ export class KeyBind {
      * @param {number} value The value of the key bind when the key is pressed
      */
     constructor(key, value) {
-        this.key_ = key;
-        this.value_ = value;
+        this._key = key;
+        this._value = value;
     }
 
     /**
      * @returns {string} The name of the key
      */
     getKeycode() {
-        return this.key_;
+        return this._key;
     }
     /**
      * @returns {number} The value of the key when the key is pressed
      */
     getValue() {
-        return this.value_;
+        return this._value;
     }
 }
 

@@ -2,35 +2,31 @@
  * Listens to the keyboard input
  * Returns which keys are pressed
  */
-export class KeyboardListener {
-    /** @private @type {boolean[]} Hash map of booleans representing if the key is pressed or no, indexed by the string key code */
-    keys_;
-
-    /**
-     * Init the keyboard handler
-     */
-    constructor() {
-        this.keys_ = {};
-
-        document.addEventListener('keydown', this.keyDown_);
-        document.addEventListener('keyup', this.keyUp_);
-    }
+export class KeyboardListener {   
+    /** @private @type {boolean[]} Hash map of booleans representing if the key is pressed, indexed by the string of key code */
+    static _keys = {};
 
     /** @private */
-    keyDown_ = (e) => {
-        this.keys_[e.code] = true;
+    static keyDown_ = (e) => {
+        KeyboardListener._keys[e.code] = true;
     }
     /** @private */
-    keyUp_ = (e) => {
-        this.keys_[e.code] = false;
+    static keyUp_ = (e) => {
+        KeyboardListener._keys[e.code] = false;
     }
+
+    /** @private Hack to create a static constructor */
+    static _ctor = (() => {
+        document.addEventListener('keydown', KeyboardListener.keyDown_);
+        document.addEventListener('keyup', KeyboardListener.keyUp_);
+    })();
 
     /**
      * Is the key pressed
      * @param {string} code Key code
      * @returns {boolean} Key state
      */
-    isPressed(code) {
-        return this.keys_[code] || false;
+    static isPressed(code) {
+        return KeyboardListener._keys[code] || false;
     }
 }

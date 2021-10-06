@@ -17,6 +17,15 @@ const image = AssetHandler.get('image', './res/textures/test_char.png').asset();
 const pos = new Vector2d(128, 128);
 const size = new Vector2d(128, 128);
 
+// TODO Remove this, test
+import { PositionComponent } from './scene/component/derived/component-position.js'
+import { TestComponent } from './scene/component/derived/component-test.js';
+
+let components = [];
+
+const posComp = new PositionComponent(components);
+const tstComp = new TestComponent(components);
+
 window.requestAnimationFrame(tick);
 
 let lastTime = new Date();

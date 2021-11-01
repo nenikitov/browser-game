@@ -1,5 +1,5 @@
-import { GameAction, KeyBind } from '../../../engine/input/input-bind.js';
-import { InputComponent } from '../../../engine/scene/component/derived/component-input.js';
+import { InputComponent } from '../../engine/scene/component/derived/component-input.js'
+import { GameAction, KeyBind } from '../../engine/input/input-bind.js';
 
 export class SideScrollerInputComponent extends InputComponent {
     actions = {

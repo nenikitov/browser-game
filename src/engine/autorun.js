@@ -9,9 +9,8 @@ const image = AssetHandler.get('image', './res/textures/test_char.png').asset();
 const size = new Vector2d(128, 128);
 
 // TODO Remove this, test
-import { SideScrollerInputComponent } from '../game/scene/component/side-scroller-input-component.js';
-import { BasePlayer } from '../engine/scene/scene-object/derived/player-base.js'
-const player = new BasePlayer(new Vector2d(25, 25), SideScrollerInputComponent);
+import { SideScrollerPlayer } from '../game/side-scroller-player/side-scroller-player.js';
+const player = new SideScrollerPlayer(new Vector2d(25, 25));
 
 window.requestAnimationFrame(tick);
 

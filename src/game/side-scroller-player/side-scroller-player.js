@@ -5,4 +5,8 @@ export class SideScrollerPlayer extends BasePlayer {
     constructor(initalPos) {
         super(initalPos, SideScrollerInputComponent)
     }
+
+    tick(deltaTime) {
+        super.tick(deltaTime);
+    }
 }

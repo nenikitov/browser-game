@@ -35,7 +35,7 @@ export class BaseComponent {
     }
 
     /**
-     * Update the component
+     * @abstract Update the component
      * @param {number} deltaTime Delta time between ticks
      */
     tick(deltaTime) {};

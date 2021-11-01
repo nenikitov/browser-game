@@ -1,5 +1,4 @@
 import { PositionComponent } from '../../component/derived/component-position.js';
-import { TestComponent } from '../../component/derived/component-test.js';
 import { BaseSceneObject } from '../object-base.js';
 
 export class BasePlayer extends BaseSceneObject {
@@ -8,8 +7,7 @@ export class BasePlayer extends BaseSceneObject {
 
         super(
             new inputComponentClass(),
-            positionComponent,
-            new TestComponent(positionComponent)
+            positionComponent
         );
     };
 }

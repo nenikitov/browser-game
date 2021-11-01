@@ -6,6 +6,11 @@ export class GameAction {
     /** @private @type {KeyBind[]} */
     _keyBinds;
 
+    /**
+     * Init the game action
+     * @param {boolean} limit If the input should be limited to values from -1 to 1
+     * @param  {...KeyBind} keyBinds List of key bindings
+     */
     constructor(limit, ...keyBinds) {
         this._keyBinds = keyBinds;
         this._limit = limit;
@@ -59,4 +64,3 @@ export class KeyBind {
         return this._value;
     }
 }
-

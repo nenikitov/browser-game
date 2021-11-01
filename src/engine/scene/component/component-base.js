@@ -3,40 +3,19 @@
  * @abstract
  */
 export class BaseComponent {
-    /** @type {BaseComponent[]} References to required components */
-    comps;
-
-    constructor(allComponents, requiredComponents) {
-        if (requiredComponents) {
-            console.log(requiredComponents, allComponents)
-            if (! BaseComponent.checkRequired(requiredComponents, allComponents)) {
-                const missingComponents = this.checkRequired(allComponents);
-                // Error, this component needs another ones to work
-                const errorMessageConstructor = (result, current) => { result + current.name };
-                throw 'The component is missing ' + missingComponents.reduce(errorMessageConstructor);
-            }
-        }
-    }
+    /** Name of the component */
+    static name = "base";
+    /** @protected @type {BaseComponent[]} List of other components that this component can manipulate or interact with */
+    others = {};
 
     /**
-     * Check if this component has all required components in component list
-     * @param {BaseComponent[]} allComponents The list of components
-     * @returns {BaseComponent[]} All required components that need to be created
+     * Initialize base component
+     * @param  {...BaseComponent} otherComponents List of other components that this component can manipulate or interact with
      */
-    static checkRequired(requiredComponents, allComponents) {
-        if (requiredComponents) {
-            let missingComponents = [];
-
-            for (let required of requiredComponents) {
-                if (! BaseComponent.hasComponent(required, allComponents)) {
-                    missingComponents.push(required);
-                }
-            }
-
-            return missingComponents;
+    constructor(...otherComponents) {
+        for (const component of otherComponents) {
+            this.others[component.constructor.name] = component;
         }
-
-        return [];
     }
 
     /**
@@ -55,5 +34,9 @@ export class BaseComponent {
         return false;
     }
 
+    /**
+     * Update the component
+     * @param {number} deltaTime Delta time between ticks
+     */
     tick(deltaTime) {};
 }

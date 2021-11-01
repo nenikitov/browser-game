@@ -1,10 +1,15 @@
+import { Vector2d } from '../../../utils/vector.js';
 import { BaseComponent } from '../component-base.js'
 import { PositionComponent } from './component-position.js';
 
 export class TestComponent extends BaseComponent {
-    static requiredComponents = [ PositionComponent ];
+    static name = 'test';
 
-    constructor(allComponents) {
-        super(allComponents, TestComponent.requiredComponents);
+    constructor(positionComponent) {
+        super(positionComponent);
+    }
+
+    tick(deltaTime) {
+        this.others.position.position.x += 5 * deltaTime;
     }
 }

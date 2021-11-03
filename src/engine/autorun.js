@@ -5,7 +5,7 @@ import { GameAction, KeyBind } from './input/input-bind.js';
 
 const canvasHandler = new CanvasHandler('renderSurface', 16/9, 1);
 
-const image = AssetHandler.get('image', './res/textures/test_char.png').asset();
+const image = AssetHandler.get('image', './res/textures/test-char-hd.svg').asset();
 const size = new Vector2d(128, 128);
 
 // TODO Remove this, test

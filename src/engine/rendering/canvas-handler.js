@@ -91,6 +91,7 @@ export class CanvasHandler {
         const scale = useResolutionScale ? this._resScale : 1;
         this._canvas.width = width * scale;
         this._canvas.height = height * scale;
+        this._ctx.scale(2, 2);
     }
     /** @private */
     _setDisplayResolution(width, height) {

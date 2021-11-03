@@ -74,12 +74,12 @@ export class CanvasHandler {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
 
-        const targetWidth = windowHeight * this._ratio; 
-        const targetHeight = windowWidth / this._ratio; 
+        const targetWidth = windowHeight * this._ratio;
+        const targetHeight = windowWidth / this._ratio;
 
         if (targetHeight > windowHeight) {
             this._setRenderResolution(targetWidth, windowHeight);
-            this._setDisplayResolution(targetWidth, targetHeight)
+            this._setDisplayResolution(targetWidth, windowHeight)
         }
         else {
             this._setRenderResolution(windowWidth, targetHeight);

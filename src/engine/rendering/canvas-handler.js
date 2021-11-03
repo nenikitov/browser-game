@@ -27,7 +27,6 @@ export class CanvasHandler {
     constructor(canvasId, aspectRatio, resolutionScale) {
         this._canvas = document.querySelector('#' + canvasId);
         this._ctx = this._canvas.getContext('2d');
-        this._ctx.imageSmoothingEnabled = false;
 
         this.setAspectRatio(aspectRatio);
         this.setResolutionScale(resolutionScale);
@@ -92,6 +91,7 @@ export class CanvasHandler {
         const scale = useResolutionScale ? this._resScale : 1;
         this._canvas.width = scale * width;
         this._canvas.height = scale * height;
+        this._ctx.scale(height, height);
     }
     /** @private */
     _setDisplayResolution(width, height) {
@@ -107,10 +107,10 @@ export class CanvasHandler {
     clear() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
-    drawImage(image, position, size, cropStart = undefined, cropSize = undefined) {
+    drawImage(image, position, size, smooth = true, cropStart = undefined, cropSize = undefined) {
         cropStart = cropStart || new Vector2d(0, 0);
         cropSize = cropSize || new Vector2d(image.naturalWidth - cropStart.x, image.naturalHeight - cropStart.y);
-
+        
         this._ctx.drawImage(image, cropStart.x, cropStart.y, cropSize.x, cropSize.y, position.x, position.y, size.x, size.y);
     }
     //#endregion

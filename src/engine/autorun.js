@@ -5,8 +5,8 @@ import { GameAction, KeyBind } from './input/input-bind.js';
 
 const canvasHandler = new CanvasHandler('renderSurface', 16/9, 1);
 
-const image = AssetHandler.get('image', './res/textures/test-char-hd.svg').asset();
-const size = new Vector2d(128, 128);
+const image = AssetHandler.get('image', './res/textures/test-char.png').asset();
+const size = new Vector2d(1.6, 1);
 
 // TODO Remove this, test
 import { SideScrollerPlayer } from '../game/side-scroller-player/side-scroller-player.js';

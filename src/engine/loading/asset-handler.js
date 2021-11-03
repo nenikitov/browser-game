@@ -15,6 +15,7 @@ export class AssetHandler {
 
     /**
      * Returns the loaded asset or loads it
+     * @param {string} type Type of the asset ('image', ...)
      * @param {string} source Path the the file
      * @returns {AssetBase}
      */

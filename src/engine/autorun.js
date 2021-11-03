@@ -10,7 +10,7 @@ const size = new Vector2d(128, 128);
 
 // TODO Remove this, test
 import { SideScrollerPlayer } from '../game/side-scroller-player/side-scroller-player.js';
-const player = new SideScrollerPlayer(new Vector2d(25, 25));
+const player = new SideScrollerPlayer(new Vector2d(0, 0));
 
 window.requestAnimationFrame(tick);
 

@@ -27,6 +27,7 @@ export class CanvasHandler {
     constructor(canvasId, aspectRatio, resolutionScale) {
         this._canvas = document.querySelector('#' + canvasId);
         this._ctx = this._canvas.getContext('2d');
+        this._ctx.imageSmoothingEnabled = false;
 
         this.setAspectRatio(aspectRatio);
         this.setResolutionScale(resolutionScale);
@@ -89,9 +90,8 @@ export class CanvasHandler {
     /** @private */
     _setRenderResolution(width, height, useResolutionScale = true) {
         const scale = useResolutionScale ? this._resScale : 1;
-        this._canvas.width = width * scale;
-        this._canvas.height = height * scale;
-        this._ctx.scale(2, 2);
+        this._canvas.width = scale * width;
+        this._canvas.height = scale * height;
     }
     /** @private */
     _setDisplayResolution(width, height) {

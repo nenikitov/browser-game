@@ -4,7 +4,7 @@
  */
 export class BaseComponent {
     /** Name of the component */
-    static name = "base";
+    static compName = 'base';
     /** @protected @type {BaseComponent[]} List of other components that this component can manipulate or interact with */
     others = {};
 

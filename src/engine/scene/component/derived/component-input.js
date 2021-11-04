@@ -2,14 +2,13 @@ import { GameAction } from '../../../input/input-bind.js';
 import { BaseComponent } from '../component-base.js'
 
 export class InputComponent extends BaseComponent {
-    static name = 'input';
+    static compName = 'input';
 
     /** @private @type {GameAction} list of all actions */
     actions;
 
-
     constructor() {
-        super("input");
+        super('input');
 
         if (! this.actions) {
             this.actions = {};

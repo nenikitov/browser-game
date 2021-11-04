@@ -3,7 +3,7 @@ export class BaseSceneObject {
 
     constructor(...components) {
         for (const component of components) {
-            this.components[component.constructor.name] = component;
+            this.components[component.constructor.compName] = component;
         }
     }
 

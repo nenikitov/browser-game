@@ -1,5 +1,5 @@
 import { PositionComponent } from '../../component/derived/component-position.js';
-import { BaseSceneObject } from '../object-base.js';
+import { BaseSceneObject } from '../scene-object-base.js';
 
 export class BasePlayer extends BaseSceneObject {
     constructor(initialPosition, inputComponentClass) {

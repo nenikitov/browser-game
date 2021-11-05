@@ -1,7 +1,10 @@
+import { BaseSceneObject } from '../scene-object/scene-object-base.js';
+
 export class BaseScene {
+    sceneObjects;
 
-    constructor() {
-
+    constructor(sceneObjects = []) {
+        this.sceneObjects = sceneObjects;
     }
 
     tick(deltaTime) {
@@ -9,5 +12,13 @@ export class BaseScene {
     }
     render(canvasHandler) {
 
+    }
+
+    /**
+     * 
+     * @param { BaseSceneObject } object 
+     */
+    addObject(object) {
+        
     }
 }

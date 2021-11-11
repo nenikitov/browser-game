@@ -58,7 +58,6 @@ export class CanvasHandler {
      */
     setResolutionScale(resolutionScale) {
         this._resScale = resolutionScale;
-        this.clear();
     }
     /**
      * Get the multiplier for rendering resolution
@@ -89,8 +88,11 @@ export class CanvasHandler {
     /** @private */
     _setRenderResolution(width, height, useResolutionScale = true) {
         const scale = useResolutionScale ? this._resScale : 1;
-        this._canvas.width = scale * width;
-        this._canvas.height = scale * height;
+        width *= scale;
+        height *= scale;
+
+        this._canvas.width = width;
+        this._canvas.height = height;
         this._ctx.scale(height, height);
     }
     /** @private */

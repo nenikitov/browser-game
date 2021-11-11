@@ -16,6 +16,7 @@ window.requestAnimationFrame(tick);
 
 let lastTime = new Date();
 function tick() {
+    canvasHandler.setResolutionScale(1);
     canvasHandler.adjustSize();
     // Get the FPS
     let currTime = new Date();

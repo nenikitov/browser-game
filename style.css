@@ -13,4 +13,6 @@ html, body {
 canvas {
     /* Border */
     box-shadow: inset 0px 0px 0px 1px red;
+    /* Disable filtering */
+    image-rendering: pixelated;
 }
